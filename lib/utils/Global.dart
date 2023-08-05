@@ -5,6 +5,9 @@ class Global {
   static XFile? pic;
   static ImagePicker picker = ImagePicker();
 
+  static String pic1 = '';
+  static ImagePicker picker1 = ImagePicker();
+
   static TextEditingController NameController = TextEditingController();
   static TextEditingController ChatController = TextEditingController();
   static TextEditingController PhoneController = TextEditingController();

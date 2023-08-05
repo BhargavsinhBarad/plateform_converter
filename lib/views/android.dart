@@ -212,30 +212,21 @@ class _androidState extends State<android> {
                 ? ListView.builder(
                     itemCount: ContactProvider.allContacts.length,
                     itemBuilder: (context, index) {
-                      return GestureDetector(
-                        onTap: () {
-                          Navigator.pushNamed(
-                            context,
-                            'details',
-                            arguments: ContactProvider.allContacts[index],
-                          );
-                        },
-                        child: ListTile(
-                          title: Text(
-                            "${ContactProvider.allContacts[index].Name}",
-                          ),
-                          subtitle: Text(
-                            "${ContactProvider.allContacts[index].MobileNumber}",
-                          ),
-                          leading: CircleAvatar(
-                            radius: 25,
-                            foregroundImage: FileImage(
-                              File(Global.pic!.path),
-                            ),
-                          ),
-                          trailing: Text(
-                              "${Provider.of<DateProvider>(context).d1.Date.day}/${Provider.of<DateProvider>(context).d1.Date.month}/${Provider.of<DateProvider>(context).d1.Date.year},${Provider.of<DateProvider>(context).t1.time.hour}:${Provider.of<DateProvider>(context).t1.time.minute}"),
+                      return ListTile(
+                        title: Text(
+                          "${ContactProvider.allContacts[index].Name}",
                         ),
+                        subtitle: Text(
+                          "${ContactProvider.allContacts[index].MobileNumber}",
+                        ),
+                        leading: CircleAvatar(
+                          radius: 25,
+                          foregroundImage: FileImage(
+                            File(Global.pic!.path),
+                          ),
+                        ),
+                        trailing: Text(
+                            "${Provider.of<DateProvider>(context).d1.Date.day}/${Provider.of<DateProvider>(context).d1.Date.month}/${Provider.of<DateProvider>(context).d1.Date.year},${Provider.of<DateProvider>(context).t1.time.hour}:${Provider.of<DateProvider>(context).t1.time.minute}"),
                       );
                     },
                   )

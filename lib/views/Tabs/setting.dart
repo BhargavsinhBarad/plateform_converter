@@ -7,6 +7,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
 
 import '../../provider/Theme_provider.dart';
+import '../../provider/platefrom.dart';
 import '../../provider/profile.dart';
 import '../../utils/Global.dart';
 
@@ -21,6 +22,15 @@ class _settingState extends State<setting> {
   @override
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
+      navigationBar: CupertinoNavigationBar(
+        middle: Text("ios app"),
+        trailing: CupertinoSwitch(
+          value: Provider.of<platfrom>(context, listen: false).isios,
+          onChanged: (val) {
+            Provider.of<platfrom>(context, listen: false).changeolatfrom(val);
+          },
+        ),
+      ),
       child: Column(
         children: [
           Container(
@@ -45,41 +55,32 @@ class _settingState extends State<setting> {
           (Provider.of<switchprovider>(context, listen: true).isprofile == true)
               ? Column(
                   children: [
-                    if (Global.pic == null)
-                      CircleAvatar(
-                        radius: 55,
-                        child: Icon(CupertinoIcons.camera),
-                      )
-                    else
-                      CircleAvatar(
-                        radius: 55,
-                        foregroundImage: FileImage(File(Global.pic!.path)),
-                      ),
+                    (Global.pic1 == '')
+                        ? CircleAvatar(
+                            radius: 55,
+                            child: Icon(CupertinoIcons.camera),
+                          )
+                        : CircleAvatar(
+                            radius: 55,
+                            foregroundImage: FileImage(File(Global.pic1!)),
+                          ),
                     const SizedBox(height: 10),
                     CupertinoButton(
                       onPressed: () async {
-                        final XFile? image = await Global.picker
+                        final XFile? image = await Global.picker1
                             .pickImage(source: ImageSource.camera);
+                        print(image!.path);
                         setState(() {
-                          Global.pic = image;
+                          Global.pic1 = image.path;
                         });
                       },
                       child: const Icon(
                         CupertinoIcons.camera,
                       ),
                     ),
-                    CupertinoTextFormFieldRow(
+                    CupertinoTextField(
                       controller: Global.PNameController,
-                      onSaved: (val) {
-                        Global.Pname = val!;
-                      },
-                    ),
-                    CupertinoTextFormFieldRow(
-                      controller: Global.BioController,
-                      onSaved: (val) {
-                        Global.Bio = val!;
-                      },
-                    ),
+                    )
                   ],
                 )
               : Container(),

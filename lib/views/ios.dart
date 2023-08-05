@@ -16,7 +16,7 @@ class ios extends StatefulWidget {
 
 class _iosState extends State<ios> {
   List<Widget> tab = [
-    // add_contact(),
+    add_contact(),
     chat(),
     call(),
     setting(),
@@ -30,11 +30,11 @@ class _iosState extends State<ios> {
           BottomNavigationBarItem(
               icon: Icon(CupertinoIcons.profile_circled), label: "add"),
           BottomNavigationBarItem(
-              icon: Icon(CupertinoIcons.chat_bubble_2), label: "add"),
+              icon: Icon(CupertinoIcons.chat_bubble_2), label: "chat"),
           BottomNavigationBarItem(
-              icon: Icon(CupertinoIcons.phone), label: "add"),
+              icon: Icon(CupertinoIcons.phone), label: "call"),
           BottomNavigationBarItem(
-              icon: Icon(CupertinoIcons.settings), label: "add"),
+              icon: Icon(CupertinoIcons.settings), label: "settings"),
         ],
       ),
       tabBuilder: (context, index) => tab[index],
