@@ -312,7 +312,7 @@ class _androidState extends State<android> {
                         true)
                     ? Column(
                         children: [
-                          if (Global.pic == null)
+                          if (Global.pic2 == null)
                             const CircleAvatar(
                               radius: 55,
                               child: Icon(Icons.camera_alt),
@@ -321,15 +321,15 @@ class _androidState extends State<android> {
                             CircleAvatar(
                               radius: 55,
                               foregroundImage:
-                                  FileImage(File(Global.pic!.path)),
+                                  FileImage(File(Global.pic2!.path)),
                             ),
                           const SizedBox(height: 10),
                           ElevatedButton(
                             onPressed: () async {
-                              final XFile? image = await Global.picker
+                              final XFile? image = await Global.picker2
                                   .pickImage(source: ImageSource.camera);
                               setState(() {
-                                Global.pic = image;
+                                Global.pic2 = image;
                               });
                             },
                             child: const Icon(

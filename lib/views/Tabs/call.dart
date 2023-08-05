@@ -21,7 +21,7 @@ class _callState extends State<call> {
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
         navigationBar: CupertinoNavigationBar(
-          middle: Text("ios app"),
+          middle: Text("Platefrom Converter"),
           trailing: CupertinoSwitch(
             value: Provider.of<platfrom>(context, listen: false).isios,
             onChanged: (val) {

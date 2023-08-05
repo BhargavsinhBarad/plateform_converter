@@ -23,7 +23,7 @@ class _settingState extends State<setting> {
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
       navigationBar: CupertinoNavigationBar(
-        middle: Text("ios app"),
+        middle: Text("Platefrom Converter"),
         trailing: CupertinoSwitch(
           value: Provider.of<platfrom>(context, listen: false).isios,
           onChanged: (val) {
@@ -33,6 +33,9 @@ class _settingState extends State<setting> {
       ),
       child: Column(
         children: [
+          SizedBox(
+            height: 90,
+          ),
           Container(
             margin: EdgeInsets.all(20),
             child: Row(

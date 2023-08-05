@@ -22,7 +22,7 @@ class _chatState extends State<chat> {
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
       navigationBar: CupertinoNavigationBar(
-        middle: Text("ios app"),
+        middle: Text("Platefrom Converter"),
         trailing: CupertinoSwitch(
           value: Provider.of<platfrom>(context, listen: false).isios,
           onChanged: (val) {
