@@ -1,6 +1,5 @@
 import 'dart:io';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:plateform_converter/provider/date_time.dart';
@@ -29,7 +28,7 @@ class _androidState extends State<android> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Platefrom Converter"),
+        title: const Text("Platefrom Converter"),
         actions: [
           Switch(
             value: Provider.of<platfrom>(context, listen: false).isios,
@@ -49,11 +48,11 @@ class _androidState extends State<android> {
           setState(() {
             inde = val;
             pageController.animateToPage(inde,
-                duration: Duration(microseconds: 300),
+                duration: const Duration(microseconds: 300),
                 curve: Curves.easeInOutBack);
           });
         },
-        items: <BottomNavigationBarItem>[
+        items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.manage_accounts_rounded),
             label: "new",
@@ -105,13 +104,13 @@ class _androidState extends State<android> {
                     },
                     child: const Icon(Icons.camera_alt_rounded),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   TextFormField(
                     controller: Global.NameController,
                     decoration: InputDecoration(
-                      prefixIcon: Icon(Icons.manage_accounts),
+                      prefixIcon: const Icon(Icons.manage_accounts),
                       hintText: "Enter Your Name",
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
@@ -121,14 +120,14 @@ class _androidState extends State<android> {
                       Global.Nmae = val!;
                     },
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   TextFormField(
                     keyboardType: TextInputType.phone,
                     controller: Global.PhoneController,
                     decoration: InputDecoration(
-                      prefixIcon: Icon(Icons.phone),
+                      prefixIcon: const Icon(Icons.phone),
                       hintText: "Enter Your phone Number",
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
@@ -138,13 +137,13 @@ class _androidState extends State<android> {
                       Global.phone = val!;
                     },
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   TextFormField(
                     controller: Global.ChatController,
                     decoration: InputDecoration(
-                      prefixIcon: Icon(Icons.chat),
+                      prefixIcon: const Icon(Icons.chat),
                       hintText: "Chat Conversation",
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
@@ -154,7 +153,7 @@ class _androidState extends State<android> {
                       Global.chat = val!;
                     },
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   ElevatedButton(
@@ -168,12 +167,13 @@ class _androidState extends State<android> {
                         firstDate: DateTime(2005),
                         lastDate: DateTime(2050),
                       );
+
                       Provider.of<DateProvider>(context, listen: false)
                           .pickDate(pickdate!);
                     },
-                    child: Text("⌚ Pick a Date"),
+                    child: const Text("⌚ Pick a Date"),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   ElevatedButton(
@@ -188,9 +188,9 @@ class _androidState extends State<android> {
                       Provider.of<DateProvider>(context, listen: false)
                           .picktime(picktime!);
                     },
-                    child: Text("⌚ Pick a TIme"),
+                    child: const Text("⌚ Pick a TIme"),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   ElevatedButton(
@@ -204,7 +204,7 @@ class _androidState extends State<android> {
                           ),
                         );
                       },
-                      child: Text("Save"))
+                      child: const Text("Save"))
                 ],
               ),
             ),
@@ -214,10 +214,10 @@ class _androidState extends State<android> {
                     itemBuilder: (context, index) {
                       return ListTile(
                         title: Text(
-                          "${ContactProvider.allContacts[index].Name}",
+                          ContactProvider.allContacts[index].MobileNumber,
                         ),
                         subtitle: Text(
-                          "${ContactProvider.allContacts[index].MobileNumber}",
+                          ContactProvider.allContacts[index].Name,
                         ),
                         leading: CircleAvatar(
                           radius: 25,
@@ -252,10 +252,10 @@ class _androidState extends State<android> {
                         },
                         child: ListTile(
                           title: Text(
-                            "${ContactProvider.allContacts[index].Name}",
+                            ContactProvider.allContacts[index].MobileNumber,
                           ),
-                          subtitle: Text(
-                              "${ContactProvider.allContacts[index].MobileNumber}"),
+                          subtitle:
+                              Text(ContactProvider.allContacts[index].Name),
                           leading: CircleAvatar(
                             radius: 25,
                             foregroundImage: FileImage(File(Global.pic!.path)),
@@ -265,8 +265,8 @@ class _androidState extends State<android> {
                               launchUrl(
                                 Uri(
                                     scheme: 'tel',
-                                    path:
-                                        "${ContactProvider.allContacts[index].MobileNumber}"),
+                                    path: ContactProvider
+                                        .allContacts[index].MobileNumber),
                               );
                             },
                             icon: const Icon(Icons.phone),
@@ -293,7 +293,7 @@ class _androidState extends State<android> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(
+                      const Text(
                         "Profile",
                         style: TextStyle(fontSize: 20),
                       ),
@@ -338,7 +338,7 @@ class _androidState extends State<android> {
                           ),
                           TextFormField(
                             controller: Global.PNameController,
-                            decoration: InputDecoration(
+                            decoration: const InputDecoration(
                               hintText: "Enter Your Name...",
                             ),
                             onSaved: (val) {
@@ -347,7 +347,7 @@ class _androidState extends State<android> {
                           ),
                           TextFormField(
                             controller: Global.BioController,
-                            decoration: InputDecoration(
+                            decoration: const InputDecoration(
                               hintText: "Enter You bio...",
                             ),
                             onSaved: (val) {
@@ -362,7 +362,7 @@ class _androidState extends State<android> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(
+                      const Text(
                         "Theme",
                         style: TextStyle(fontSize: 20),
                       ),

@@ -23,7 +23,7 @@ class _settingState extends State<setting> {
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
       navigationBar: CupertinoNavigationBar(
-        middle: Text("Platefrom Converter"),
+        middle: const Text("Platefrom Converter"),
         trailing: CupertinoSwitch(
           value: Provider.of<platfrom>(context, listen: false).isios,
           onChanged: (val) {
@@ -33,15 +33,15 @@ class _settingState extends State<setting> {
       ),
       child: Column(
         children: [
-          SizedBox(
+          const SizedBox(
             height: 90,
           ),
           Container(
-            margin: EdgeInsets.all(20),
+            margin: const EdgeInsets.all(20),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(
+                const Text(
                   "Profile",
                   style: TextStyle(fontSize: 20),
                 ),
@@ -59,7 +59,7 @@ class _settingState extends State<setting> {
               ? Column(
                   children: [
                     (Global.pic1 == '')
-                        ? CircleAvatar(
+                        ? const CircleAvatar(
                             radius: 55,
                             child: Icon(CupertinoIcons.camera),
                           )
@@ -88,11 +88,11 @@ class _settingState extends State<setting> {
                 )
               : Container(),
           Container(
-            margin: EdgeInsets.all(20),
+            margin: const EdgeInsets.all(20),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(
+                const Text(
                   "Theme",
                   style: TextStyle(fontSize: 20),
                 ),

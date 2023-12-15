@@ -10,19 +10,14 @@ import '../../provider/date_time.dart';
 import '../../provider/platefrom.dart';
 import '../../utils/Global.dart';
 
-class chat extends StatefulWidget {
+class chat extends StatelessWidget {
   const chat({Key? key}) : super(key: key);
 
-  @override
-  State<chat> createState() => _chatState();
-}
-
-class _chatState extends State<chat> {
   @override
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
       navigationBar: CupertinoNavigationBar(
-        middle: Text("Platefrom Converter"),
+        middle: const Text("Platefrom Converter"),
         trailing: CupertinoSwitch(
           value: Provider.of<platfrom>(context, listen: false).isios,
           onChanged: (val) {
@@ -37,10 +32,10 @@ class _chatState extends State<chat> {
                 return Material(
                   child: ListTile(
                     title: Text(
-                      "${ContactProvider.allContacts[index].Name}",
+                      ContactProvider.allContacts[index].Name,
                     ),
-                    subtitle: Text(
-                        "${ContactProvider.allContacts[index].MobileNumber}"),
+                    subtitle:
+                        Text(ContactProvider.allContacts[index].MobileNumber),
                     leading: Material(
                       child: CircleAvatar(
                         radius: 25,

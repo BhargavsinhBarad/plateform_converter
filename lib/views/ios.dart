@@ -7,26 +7,21 @@ import 'Tabs/call.dart';
 import 'Tabs/chat.dart';
 import 'Tabs/setting.dart';
 
-class ios extends StatefulWidget {
-  const ios({Key? key}) : super(key: key);
+class ios extends StatelessWidget {
+  ios({Key? key}) : super(key: key);
 
-  @override
-  State<ios> createState() => _iosState();
-}
-
-class _iosState extends State<ios> {
   List<Widget> tab = [
-    add_contact(),
-    chat(),
-    call(),
-    setting(),
+    const add_contact(),
+    const chat(),
+    const call(),
+    const setting(),
   ];
 
   @override
   Widget build(BuildContext context) {
     return CupertinoTabScaffold(
       tabBar: CupertinoTabBar(
-        items: <BottomNavigationBarItem>[
+        items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
               icon: Icon(CupertinoIcons.profile_circled), label: "add"),
           BottomNavigationBarItem(

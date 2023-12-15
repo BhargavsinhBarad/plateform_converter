@@ -1,3 +1,5 @@
+// ignore_for_file: camel_case_types
+
 import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
@@ -20,7 +22,7 @@ class _add_contactState extends State<add_contact> {
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
       navigationBar: CupertinoNavigationBar(
-        middle: Text("Platefrom Converter"),
+        middle: const Text("Platefrom Converter"),
         trailing: CupertinoSwitch(
           value: Provider.of<platfrom>(context, listen: false).isios,
           onChanged: (val) {
@@ -30,12 +32,12 @@ class _add_contactState extends State<add_contact> {
       ),
       child: Column(
         children: [
-          SizedBox(
+          const SizedBox(
             height: 100,
           ),
           if (Global.pic == null)
-            Center(
-              child: const CircleAvatar(
+            const Center(
+              child: CircleAvatar(
                 radius: 65,
                 child: Icon(CupertinoIcons.camera),
               ),
